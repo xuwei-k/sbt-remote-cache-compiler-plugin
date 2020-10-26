@@ -3,6 +3,6 @@
 set -eux
 
 rm -rf target
-sbt pushRemoteCache
+sbt "show Compile / scalacOptions" pushRemoteCache
 rm -rf target
-sbt -Dsbt.coursier.home=my_coursier_home pullRemoteCache compile
+sbt -Dsbt.coursier.home=my_coursier_home "show Compile / scalacOptions" pullRemoteCache compile
